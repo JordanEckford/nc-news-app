@@ -9,7 +9,7 @@ export const Voter = ({ type, votes, article_id }) => {
   if (type === "article_vote") {
    updateArticleVotes(userVotes, article_id)
     .then((response) => {
-     //possible feedback for the user??
+     //possible feedback for the user?? As in button goes green or something cool
     })
     .catch((err) => {
      setUserVotes(0);
