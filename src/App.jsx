@@ -1,6 +1,12 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Header } from "./Components/Header";
 import { NavBar } from "./Components/NavBar";
+import { Home } from "./Components/Home";
+import { ViewArticles } from "./Components/ViewArticles";
+import { PostArticle } from "./Components/PostArticle";
+import { Account } from "./Components/Account";
+import { SingleArticle } from "./Components/SingleArticle";
 
 function App() {
  return (
@@ -8,6 +14,13 @@ function App() {
    <Header />
    <p>username info</p>
    <NavBar />
+   <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/articles/:article_id" element={<SingleArticle />} />
+    <Route path="/articles/*" element={<ViewArticles />} />
+    <Route path="/postarticle" element={<PostArticle />} />
+    <Route path="/account" element={<Account />} />
+   </Routes>
    <p>Content</p>
   </>
  );
