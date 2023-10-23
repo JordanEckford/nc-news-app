@@ -1,9 +1,14 @@
 import "./App.css";
+import { Header } from "./Components/Header";
+import { NavBar } from "./Components/NavBar";
 
 function App() {
  return (
   <>
-   <p>Jordans News</p>
+   <Header />
+   <p>username info</p>
+   <NavBar />
+   <p>Content</p>
   </>
  );
 }
