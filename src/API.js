@@ -19,3 +19,9 @@ export const fetchCommentsByArticleID = (article_id) => {
   return response.data.comments;
  });
 };
+
+export const updateArticleVotes = (votes, article_id) => {
+ return axios.patch(`https://nc-news-nvy4.onrender.com/api/articles/${article_id}`, { inc_votes: votes }).then((response) => {
+  return response;
+ });
+};

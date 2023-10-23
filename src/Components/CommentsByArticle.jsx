@@ -17,6 +17,7 @@ export const CommentsByArticle = ({ article_id }) => {
  }, []);
 
  if (isLoading) return <p>Loading...</p>;
+ if (comments.length === 0) return <p>Its empty in here... Be the first to comment below:</p>;
  return (
   <ul className="comments-list">
    <h3>Comments: </h3>
