@@ -20,11 +20,14 @@ export const SingleArticle = () => {
     <h2 className="single-article-topic">Topic: {singleArticle.topic}</h2>
     <img className="single-article-img" src={singleArticle.article_img_url} alt="" />
     <p className="single-article-body">{singleArticle.body}</p>
-    <button className="single-article-vote">Vote</button>
-    <label className="single-article-label" htmlFor="create-comment">
-     Add comment: <input className="single-article-input" id="create-comment" placeholder="I liked this because..." />
-    </label>
-    <button>Submit</button>
+    <button className="single-article-vote">+</button>
+    <button className="single-article-vote">-</button>
+    <form action="">
+     <label className="single-article-label" htmlFor="create-comment">
+      Add comment: <input className="single-article-input" id="create-comment" placeholder="I liked this because..." />
+     </label>
+     <button type="submit">Submit</button>
+    </form>
    </article>
   </>
  );
