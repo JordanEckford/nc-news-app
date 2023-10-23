@@ -1,14 +1,22 @@
 import { Route, Routes } from "react-router-dom";
 import { fetchAllArticles } from "../API";
 import { ArticleCard } from "./ArticleCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SingleArticle } from "./SingleArticle";
 
 export const ViewArticles = () => {
  const [articles, setArticles] = useState([]);
- fetchAllArticles().then((response) => {
-  setArticles(response);
- });
+ const [isLoading, setIsLoading] = useState(true);
+
+ useEffect(() => {
+  setIsLoading(true);
+  fetchAllArticles().then((response) => {
+   setArticles(response);
+   setIsLoading(false);
+  });
+ }, []);
+
+ if (isLoading) return <p>Loading Articles...</p>;
 
  return (
   <>

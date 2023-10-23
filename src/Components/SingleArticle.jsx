@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { fetchArticleByID } from "../API";
 import { useState } from "react";
+import { CommentsByArticle } from "./CommentsByArticle";
 
 export const SingleArticle = () => {
  const [singleArticle, setSingleArticle] = useState([]);
@@ -23,6 +24,7 @@ export const SingleArticle = () => {
     <button className="single-article-vote">+</button>
     <button className="single-article-vote">-</button>
     <form action="">
+     <CommentsByArticle article_id={article_id} />
      <label className="single-article-label" htmlFor="create-comment">
       Add comment: <input className="single-article-input" id="create-comment" placeholder="I liked this because..." />
      </label>
