@@ -31,3 +31,15 @@ export const postCommentByArticleID = (article_id, object) => {
   return response.data;
  });
 };
+
+export const getTopics = () => {
+ return axios.get(`https://nc-news-nvy4.onrender.com/api/topics`).then((response) => {
+  return response.data.topics;
+ });
+};
+
+export const getArticlesByTopic = (topic) => {
+ return axios.get(`https://nc-news-nvy4.onrender.com/api/articles?topic=${topic}`).then((response) => {
+  return response.data.articles;
+ });
+};
