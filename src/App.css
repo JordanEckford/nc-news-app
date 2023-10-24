@@ -145,3 +145,7 @@
 .comment-delete-button {
  margin-left: 10px;
 }
+
+.error-msg {
+ color: red;
+}

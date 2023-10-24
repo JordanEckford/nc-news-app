@@ -11,7 +11,7 @@ export const Voter = ({ type, votes, article_id }) => {
     .then((response) => {
      //possible feedback for the user?? As in button goes green or something cool
     })
-    .catch((err) => {
+    .catch(() => {
      setUserVotes(0);
      setIsError(true);
     });
@@ -46,7 +46,7 @@ export const Voter = ({ type, votes, article_id }) => {
    >
     -
    </button>
-   {isError ? <div>Sorry, voting isn't available right now</div> : <></>}
+   {isError ? <div className="error-msg">Sorry, voting isn't available right now</div> : <></>}
   </>
  );
 };
