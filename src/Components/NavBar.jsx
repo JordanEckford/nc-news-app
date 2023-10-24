@@ -6,7 +6,7 @@ export const NavBar = () => {
  const { username } = useContext(UsernameContext);
  return (
   <nav>
-   <Link to="/"> Home </Link> | <Link to="/articles"> View Articles </Link> | <Link to="/postarticle"> Post Article</Link> |
+   <Link to="/"> Home </Link> | <Link to="/articles/all"> View Articles </Link> | <Link to="/postarticle"> Post Article</Link> |
    <Link to="account"> {username === null ? "User Profile" : `${username}'s Profile`} </Link>
   </nav>
  );

@@ -23,7 +23,7 @@ export const SingleArticle = () => {
  return (
   <>
    <nav className="single-article-nav">
-    <Link to="/articles">Back to all articles</Link>
+    <Link to="/articles/all">Back to all articles</Link>
    </nav>
    <article className="single-article" key={singleArticle.title}>
     <SingleArticleContent singleArticle={singleArticle} />

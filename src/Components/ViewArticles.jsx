@@ -23,7 +23,7 @@ export const ViewArticles = () => {
 
  return (
   <>
-   <SortingQueries />
+   <SortingQueries setArticles={setArticles} setIsLoading={setIsLoading} />
    <h2>Articles: </h2>
    <ul className="article-list">
     <ArticleCard articles={articles} />

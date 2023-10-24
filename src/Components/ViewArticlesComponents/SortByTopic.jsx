@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getArticlesByTopic } from "../../API";
+import { getArticlesByQuery } from "../../API";
 import { ArticleCard } from "./ArticleCard";
 import { SortingQueries } from "./SortingQueries";
 
 export const SortByTopic = () => {
- const { sortby } = useParams();
+ const { topic } = useParams();
  const [sortedArticles, setSortedArticles] = useState([]);
 
  useEffect(() => {
-  getArticlesByTopic(sortby).then((response) => {
+  getArticlesByQuery(topic).then((response) => {
    setSortedArticles(response);
   });
  }, []);
@@ -24,5 +24,3 @@ export const SortByTopic = () => {
   </>
  );
 };
-
-///api/articles?topic=xx
