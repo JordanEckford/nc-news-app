@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { updateArticleVotes } from "../API";
+import { updateArticleVotes } from "../../API";
 
 export const Voter = ({ type, votes, article_id }) => {
  const [userVotes, setUserVotes] = useState(0);

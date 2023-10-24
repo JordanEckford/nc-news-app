@@ -1,8 +1,6 @@
-import { Route, Routes } from "react-router-dom";
 import { fetchAllArticles } from "../API";
-import { ArticleCard } from "./ArticleCard";
+import { ArticleCard } from "./ViewArticlesComponents/ArticleCard";
 import { useEffect, useState } from "react";
-import { SingleArticle } from "./SingleArticle";
 
 export const ViewArticles = () => {
  const [articles, setArticles] = useState([]);

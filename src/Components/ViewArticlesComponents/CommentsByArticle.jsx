@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { fetchCommentsByArticleID } from "../API";
+import { fetchCommentsByArticleID } from "../../API";
 import { useState } from "react";
-import { UsernameContext } from "../Contexts/UsernameContext";
+import { UsernameContext } from "../../Contexts/UsernameContext";
 
 export const CommentsByArticle = ({ article_id }) => {
  const { username } = useContext(UsernameContext);
