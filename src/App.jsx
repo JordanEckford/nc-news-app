@@ -7,7 +7,6 @@ import { ViewArticles } from "./Components/ViewArticles";
 import { PostArticle } from "./Components/ViewArticlesComponents/PostArticle";
 import { Account } from "./Components/Account";
 import { SingleArticle } from "./Components/ViewArticlesComponents/SingleArticle";
-import { SortByTopic } from "./Components/ViewArticlesComponents/SortByTopic";
 
 function App() {
  return (
@@ -20,7 +19,6 @@ function App() {
     <Route path="/articles/:article_id" element={<SingleArticle />} />
     <Route path="/articles/topic/:topic/:article_id" element={<SingleArticle />} />
     <Route path="/articles/all" element={<ViewArticles />} />
-    <Route path="/articles/topics/:topic" element={<SortByTopic />} />
     <Route path="/postarticle" element={<PostArticle />} />
     <Route path="/account" element={<Account />} />
    </Routes>

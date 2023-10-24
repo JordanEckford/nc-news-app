@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { getArticlesByQuery, getTopics } from "../../API";
 import { Link } from "react-router-dom";
 
-export const SortingQueries = ({ setArticles, setSortedArticles }) => {
+export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
  const [topics, setTopics] = useState([]);
- const [topic, setTopic] = useState("all");
- const [sortBy, setSortBy] = useState("date");
- const [order, setOrder] = useState("desc");
+ const [userTopic, setUserTopic] = useState("all");
+ const [userSortBy, setUserSortBy] = useState("date");
+ const [userOrder, setUserOrder] = useState("desc");
+ const [advancedSearch, setAdvancedSearch] = useState(false);
 
  useEffect(() => {
   getTopics().then((response) => {
@@ -14,15 +15,18 @@ export const SortingQueries = ({ setArticles, setSortedArticles }) => {
   });
  }, []);
 
+ function toggleAdvancedSearch() {
+  advancedSearch ? setAdvancedSearch(false) : setAdvancedSearch(true);
+ }
+
  function handleSubmit(event) {
   event.preventDefault();
-  let sort_by = sortBy;
-  if (sortBy === "date") sort_by = "created_at";
-  if (sortBy === "comments") sort_by = "comment_count";
-  getArticlesByQuery(topic, sort_by, order).then((response) => {
-   setArticles(response);
-   setSortedArticles(response);
-  });
+  let sort_by = userSortBy;
+  if (userSortBy === "date") sort_by = "created_at";
+  if (userSortBy === "comments") sort_by = "comment_count";
+  setTopic(userTopic);
+  setSortBy(sort_by);
+  setOrder(userOrder);
  }
 
  return (
@@ -32,7 +36,7 @@ export const SortingQueries = ({ setArticles, setSortedArticles }) => {
     <label htmlFor="sortByTopic">Topic: </label>
     <select
      onChange={(e) => {
-      setTopic(e.target.value);
+      setUserTopic(e.target.value);
      }}
      name=""
      id="sortByTopic"
@@ -45,7 +49,7 @@ export const SortingQueries = ({ setArticles, setSortedArticles }) => {
     <label htmlFor="sortByProperty">Sort By: </label>
     <select
      onChange={(e) => {
-      setSortBy(e.target.value);
+      setUserSortBy(e.target.value);
      }}
      name=""
      id="sortByProperty"
@@ -57,7 +61,7 @@ export const SortingQueries = ({ setArticles, setSortedArticles }) => {
     <label htmlFor="order">Order: </label>
     <select
      onChange={(e) => {
-      setOrder(e.target.value);
+      setUserOrder(e.target.value);
      }}
      name=""
      id="order"
@@ -65,9 +69,16 @@ export const SortingQueries = ({ setArticles, setSortedArticles }) => {
      <option value="desc">desc</option>
      <option value="asc">asc</option>
     </select>
-    <Link to={`/articles/topics/${topic}`}>
-     <button type="submit">Search</button>
-    </Link>
+    <button onClick={toggleAdvancedSearch}>Advanced Search Options</button>
+    {advancedSearch ? <p>super advanced</p> : <p>no advanced for you</p>}
+    <label htmlFor="articles-per-page">Articles Per Page:</label>
+    <select name="" id="">
+     <option value="5">5</option>
+     <option value="10">10</option>
+     <option value="20">20</option>
+     <option value="50">50</option>
+    </select>
+    <button type="submit">Search</button>
    </form>
   </>
  );
