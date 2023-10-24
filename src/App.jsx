@@ -4,9 +4,9 @@ import { Header } from "./Components/Header";
 import { NavBar } from "./Components/NavBar";
 import { Home } from "./Components/Home";
 import { ViewArticles } from "./Components/ViewArticles";
-import { PostArticle } from "./Components/PostArticle";
+import { PostArticle } from "./Components/ViewArticlesComponents/PostArticle";
 import { Account } from "./Components/Account";
-import { SingleArticle } from "./Components/SingleArticle";
+import { SingleArticle } from "./Components/ViewArticlesComponents/SingleArticle";
 
 function App() {
  return (
