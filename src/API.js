@@ -25,3 +25,9 @@ export const updateArticleVotes = (votes, article_id) => {
   return response;
  });
 };
+
+export const postCommentByArticleID = (article_id, object) => {
+ return axios.post(`https://nc-news-nvy4.onrender.com/api/articles/${article_id}/comments`, object).then((response) => {
+  return response.data;
+ });
+};
