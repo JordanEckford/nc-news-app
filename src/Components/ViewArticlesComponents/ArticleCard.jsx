@@ -8,7 +8,9 @@ export const ArticleCard = ({ articles }) => {
     return (
      <li key={article.article_id} className="article-card">
       <img className="article-img" src={article.article_img_url} alt={`A stock image relating to ${article.title}`} />
-      <h3 className="article-title">{article.title}</h3>
+      <Link to={`/articles/${article.article_id}`}>
+       <h3 className="article-title">{article.title}</h3>
+      </Link>
       <h4 className="article-topic">Topic: {article.topic}</h4>
       {/* <p className="article-id">ID: #{article.article_id}</p>
       <p className="article-author">Author: {article.author}</p> */}
@@ -23,9 +25,7 @@ export const ArticleCard = ({ articles }) => {
        {article.created_at.slice(4, 8)}
        {article.created_at.slice(0, 4)}, Time: {article.created_at.slice(11, 16)}
       </p>
-      <nav className="article-link">
-       <Link to={`/articles/${article.article_id}`}>See Full Article</Link>
-      </nav>
+      <nav className="article-link"></nav>
      </li>
     );
    })}
