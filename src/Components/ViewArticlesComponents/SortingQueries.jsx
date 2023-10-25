@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getArticlesByQuery, getTopics } from "../../API";
 import { Link } from "react-router-dom";
+import { AdvancedSearch } from "./AdvancedSearch";
 
 export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
  const [topics, setTopics] = useState([]);
@@ -8,6 +9,8 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
  const [userSortBy, setUserSortBy] = useState("date");
  const [userOrder, setUserOrder] = useState("desc");
  const [advancedSearch, setAdvancedSearch] = useState(false);
+ const [userArticlesPerPage, setUserArticlesPerPage] = useState(10);
+ const [userPageNumber, setUserPageNumber] = useState(1);
 
  useEffect(() => {
   getTopics().then((response) => {
@@ -69,15 +72,9 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
      <option value="desc">desc</option>
      <option value="asc">asc</option>
     </select>
-    <button onClick={toggleAdvancedSearch}>Advanced Search Options</button>
-    {advancedSearch ? <p>super advanced</p> : <p>no advanced for you</p>}
-    <label htmlFor="articles-per-page">Articles Per Page:</label>
-    <select name="" id="">
-     <option value="5">5</option>
-     <option value="10">10</option>
-     <option value="20">20</option>
-     <option value="50">50</option>
-    </select>
+    <button onClick={toggleAdvancedSearch}>Advanced Search Options (functionality TODO)</button>
+    {advancedSearch ? <AdvancedSearch /> : <></>}
+
     <button type="submit">Search</button>
    </form>
   </>
