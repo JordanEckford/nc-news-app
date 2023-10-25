@@ -5,23 +5,34 @@
 }
 
 .article-list {
- width: 80%;
+ width: 90%;
+ border: green solid 1px;
  margin: 0 auto;
+ padding: 0;
  list-style: none;
  display: flex;
- flex-direction: column;
+ flex-direction: row;
+ flex-wrap: wrap;
  justify-content: center;
 }
 
 .article-card {
- display: grid;
+ border: solid black 2px;
+ margin: 2%;
+ width: 30vw;
+ min-width: 280px;
+ max-width: 300px;
+ /* display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr;
  grid-template-rows: 40% 20% 20% 25%;
  justify-content: center;
- border: solid black 2px;
  margin: 10px;
- margin-left: -35px;
- height: fit-content;
+
+ height: fit-content; */
+}
+
+.article-img {
+ width: 100%;
 }
 
 .article-title {
@@ -41,16 +52,14 @@
 }
 
 .article-comments {
- grid-row: 2;
- grid-column: 1;
- justify-self: center;
- align-self: center;
+ border: red solid 1px;
+ width: 49%;
+ margin: 0 auto;
 }
 .article-votes {
- grid-row: 3;
- grid-column: 1;
- justify-self: center;
- align-self: center;
+ width: 49%;
+ border: blue 1px solid;
+ margin: 0 auto;
 }
 
 .article-id {
@@ -68,8 +77,10 @@
 }
 
 .article-link {
- grid-row: 4;
- grid-column: 2/4;
+ margin: 2% auto 0 auto;
+
+ width: 40%;
+ border: 1px solid black;
 }
 
 /* Single Article CSS */

@@ -11,6 +11,7 @@ export const CommentsByArticle = ({ article_id }) => {
  const [deletePending, setDeletePending] = useState(null);
  const [commentIDToDelete, setCommentIDToDelete] = useState(null);
  const [noComments, setNoComments] = useState(false);
+ const [deleteError, setDeleteError] = useState(false);
 
  useEffect(() => {
   setIsLoading(true);
@@ -34,9 +35,14 @@ export const CommentsByArticle = ({ article_id }) => {
  useEffect(() => {
   if (commentIDToDelete === null) return;
   setDeletePending(true);
-  deleteCommentByCommentID(commentIDToDelete).then((response) => {
-   setDeletePending(false);
-  });
+  deleteCommentByCommentID(commentIDToDelete)
+   .then((response) => {
+    setDeletePending(false);
+   })
+   .catch(() => {
+    setDeletePending(null);
+    setDeleteError(true);
+   });
  }, [commentIDToDelete]);
 
  if (isLoading) return <p>Loading...</p>;
@@ -65,6 +71,7 @@ export const CommentsByArticle = ({ article_id }) => {
        )}
        {commentIDToDelete === comment.comment_id && deletePending ? <p>Deleting...</p> : <></>}
        {commentIDToDelete === comment.comment_id && deletePending === false ? <p>Comment deleted</p> : <></>}
+       {commentIDToDelete === comment.comment_id && deleteError ? <p className="error-msg">Unable to delete comment</p> : <></>}
       </div>
      </li>
     );
