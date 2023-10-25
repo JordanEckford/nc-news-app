@@ -48,3 +48,9 @@ export const getArticlesByQuery = (topic, sort_by = "created_at", order = "desc"
   return response.data.articles;
  });
 };
+
+export const deleteCommentByCommentID = (comment_id) => {
+ return axios.delete(`https://nc-news-nvy4.onrender.com/api/comments/${comment_id}`).then((response) => {
+  return response;
+ });
+};
