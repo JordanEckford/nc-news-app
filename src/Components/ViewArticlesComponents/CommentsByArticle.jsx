@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { deleteCommentByCommentID, fetchCommentsByArticleID } from "../../API";
 import { useState } from "react";
 import { UsernameContext } from "../../Contexts/UsernameContext";
+import { Voter } from "../ReusableComponents/Voter";
 
 export const CommentsByArticle = ({ article_id }) => {
  const { username } = useContext(UsernameContext);
@@ -48,9 +49,7 @@ export const CommentsByArticle = ({ article_id }) => {
      <li className="comment-card" key={comment.comment_id}>
       <p className="comment-body">{comment.body}</p>
       <div className="comment-voting">
-       <p className="comment-votes">Votes: {comment.votes}</p>
-       <button className="comment-vote-button">+</button>
-       <button className="comment-vote-button">-</button>
+       <Voter type={"comment_vote"} votes={comment.votes} comment_id={comment.comment_id} />
        {comment.author === username ? (
         <button
          disabled={commentIDToDelete === comment.comment_id && deletePending !== null}
