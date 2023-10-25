@@ -27,7 +27,6 @@ export const ViewArticles = () => {
   <>
    <SortingQueries topic={topic} setTopic={setTopic} setSortBy={setSortBy} setOrder={setOrder} />
    <h2>Articles: </h2>
-   <p>TODO: Add Date to articles and also remove ID??</p>
    {isLoading ? (
     <p>Loading Articles...</p>
    ) : (

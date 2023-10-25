@@ -12,13 +12,17 @@ export const ArticleCard = ({ articles }) => {
       <h4 className="article-topic">Topic: {article.topic}</h4>
       {/* <p className="article-id">ID: #{article.article_id}</p>
       <p className="article-author">Author: {article.author}</p> */}
-      <p>
+      <p className="article-comments">
+       <img className="comments-icon" src="../../../commentsicon.png" alt="icon representing comments" /> {article.comment_count}
+      </p>
+      <p className="article-votes">
+       <img className="votes-icon" src="../../../votesicon.png" alt="icon representing votes" /> {article.votes}
+      </p>
+      <p className="article-date">
        Date: {article.created_at.slice(8, 10)}
        {article.created_at.slice(4, 8)}
        {article.created_at.slice(0, 4)}, Time: {article.created_at.slice(11, 16)}
       </p>
-      <p className="article-comments">Comments: {article.comment_count}</p>
-      <p className="article-votes">Votes: {article.votes}</p>
       <nav className="article-link">
        <Link to={`/articles/${article.article_id}`}>See Full Article</Link>
       </nav>
