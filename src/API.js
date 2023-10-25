@@ -54,3 +54,9 @@ export const deleteCommentByCommentID = (comment_id) => {
   return response;
  });
 };
+
+export const updateCommentVote = (votes, comment_id) => {
+ return axios.patch(`https://nc-news-nvy4.onrender.com/api/comments/${comment_id}`, { inc_votes: votes }).then((response) => {
+  return response;
+ });
+};

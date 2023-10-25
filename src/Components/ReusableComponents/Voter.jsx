@@ -1,13 +1,23 @@
 import { useState } from "react";
-import { updateArticleVotes } from "../../API";
+import { updateArticleVotes, updateCommentVote } from "../../API";
 
-export const Voter = ({ type, votes, article_id }) => {
+export const Voter = ({ type, votes, article_id, comment_id }) => {
  const [userVotes, setUserVotes] = useState(0);
  const [isError, setIsError] = useState(false);
 
  const voteUpdater = (userVotes, article_id) => {
   if (type === "article_vote") {
    updateArticleVotes(userVotes, article_id)
+    .then((response) => {
+     //possible feedback for the user?? As in button goes green or something cool
+    })
+    .catch(() => {
+     setUserVotes(0);
+     setIsError(true);
+    });
+  }
+  if (type === "comment_vote") {
+   updateCommentVote(userVotes, comment_id)
     .then((response) => {
      //possible feedback for the user?? As in button goes green or something cool
     })
