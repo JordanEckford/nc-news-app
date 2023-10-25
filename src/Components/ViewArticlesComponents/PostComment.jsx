@@ -14,7 +14,6 @@ export const PostComment = ({ article_id }) => {
   const commentObject = { username: username, body: userInput };
   setCommentToPost(commentObject);
   setOpRendComment(userInput);
-  setUserInput("");
  }
 
  useEffect(() => {
@@ -22,6 +21,7 @@ export const PostComment = ({ article_id }) => {
   postCommentByArticleID(article_id, commentToPost)
    .then(() => {
     setIsError(false);
+    setUserInput("");
    })
    .catch(() => {
     setOpRendComment(null);
@@ -46,7 +46,7 @@ export const PostComment = ({ article_id }) => {
      placeholder="I liked this because..."
     />
    </label>
-   {isError ? <p className="error-msg">Sorry, comments are not available right now</p> : <></>}
+   {isError ? <p className="error-msg">Sorry, something went wrong. Please try again...</p> : <></>}
    <button type="submit">Submit</button>
   </form>
  );

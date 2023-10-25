@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const ArticleCard = ({ articles }) => {
+ if (articles.length === 0) return <p>No articles found!</p>;
  return (
   <>
    {articles.map((article) => {
@@ -13,7 +14,7 @@ export const ArticleCard = ({ articles }) => {
       <p className="article-comments">Comments: {article.comment_count}</p>
       <p className="article-votes">Votes: {article.votes}</p>
       <nav className="article-link">
-       <Link to={`${article.article_id}`}>See Full Article</Link>
+       <Link to={`/articles/${article.article_id}`}>See Full Article</Link>
       </nav>
      </li>
     );

@@ -2,6 +2,7 @@ import axios from "axios";
 
 //https://nc-news-nvy4.onrender.com/
 
+//below can take params
 export const fetchAllArticles = () => {
  return axios.get("https://nc-news-nvy4.onrender.com/api/articles").then((response) => {
   return response.data.articles;
@@ -38,8 +39,12 @@ export const getTopics = () => {
  });
 };
 
-export const getArticlesByTopic = (topic) => {
- return axios.get(`https://nc-news-nvy4.onrender.com/api/articles?topic=${topic}`).then((response) => {
+export const getArticlesByQuery = (topic, sort_by = "created_at", order = "desc") => {
+ let query = "https://nc-news-nvy4.onrender.com/api/articles?";
+ if (topic !== "all") {
+  query += `topic=${topic}&sort_by=${sort_by}&order=${order}`;
+ } else query += `sort_by=${sort_by}&order=${order}`;
+ return axios.get(query).then((response) => {
   return response.data.articles;
  });
 };

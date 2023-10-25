@@ -1,4 +1,4 @@
-import { fetchAllArticles } from "../API";
+import { getArticlesByQuery } from "../API";
 import { ArticleCard } from "./ViewArticlesComponents/ArticleCard";
 import { useEffect, useState } from "react";
 import { SortingQueries } from "./ViewArticlesComponents/SortingQueries";
@@ -7,9 +7,13 @@ export const ViewArticles = () => {
  const [articles, setArticles] = useState([]);
  const [isLoading, setIsLoading] = useState(true);
 
+ const [topic, setTopic] = useState("all");
+ const [sortBy, setSortBy] = useState("created_at");
+ const [order, setOrder] = useState("desc");
+
  useEffect(() => {
   setIsLoading(true);
-  fetchAllArticles()
+  getArticlesByQuery(topic, sortBy, order)
    .then((response) => {
     setArticles(response);
     setIsLoading(false);
@@ -17,17 +21,19 @@ export const ViewArticles = () => {
    .catch((err) => {
     console.log(err);
    });
- }, []);
-
- if (isLoading) return <p>Loading Articles...</p>;
+ }, [topic, sortBy, order]);
 
  return (
   <>
-   <SortingQueries />
+   <SortingQueries topic={topic} setTopic={setTopic} setSortBy={setSortBy} setOrder={setOrder} />
    <h2>Articles: </h2>
-   <ul className="article-list">
-    <ArticleCard articles={articles} />
-   </ul>
+   {isLoading ? (
+    <p>Loading Articles...</p>
+   ) : (
+    <ul className="article-list">
+     <ArticleCard articles={articles} />
+    </ul>
+   )}
   </>
  );
 };
