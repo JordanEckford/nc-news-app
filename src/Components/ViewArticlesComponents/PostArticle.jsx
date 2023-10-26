@@ -1,3 +1,3 @@
 export const PostArticle = () => {
- return <p>Post Article Element</p>;
+ return <img className="error-500-img" src="/underconstruction.jpeg" alt="" />;
 };

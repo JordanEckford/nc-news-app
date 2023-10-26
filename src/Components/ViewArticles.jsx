@@ -2,18 +2,27 @@ import { getArticlesByQuery } from "../API";
 import { ArticleCard } from "./ViewArticlesComponents/ArticleCard";
 import { useEffect, useState } from "react";
 import { SortingQueries } from "./ViewArticlesComponents/SortingQueries";
+import { useSearchParams } from "react-router-dom";
 
 export const ViewArticles = () => {
  const [articles, setArticles] = useState([]);
  const [isLoading, setIsLoading] = useState(true);
+ const [searchParams, setSearchParams] = useSearchParams();
 
  const [topic, setTopic] = useState("all");
  const [sortBy, setSortBy] = useState("created_at");
  const [order, setOrder] = useState("desc");
 
  useEffect(() => {
-  setIsLoading(true);
-  getArticlesByQuery(topic, sortBy, order)
+  if (topic === "all") {
+   setSearchParams({ sort_by: sortBy, order });
+  } else {
+   setSearchParams({ topic, sort_by: sortBy, order });
+  }
+ }, [topic, sortBy, order]);
+
+ useEffect(() => {
+  getArticlesByQuery(searchParams)
    .then((response) => {
     setArticles(response);
     setIsLoading(false);
@@ -21,7 +30,7 @@ export const ViewArticles = () => {
    .catch((err) => {
     console.log(err);
    });
- }, [topic, sortBy, order]);
+ }, [searchParams]);
 
  return (
   <>
