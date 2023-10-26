@@ -14,12 +14,14 @@ export const ArticleCard = ({ articles }) => {
       <h4 className="article-topic">Topic: {article.topic}</h4>
       {/* <p className="article-id">ID: #{article.article_id}</p>
       <p className="article-author">Author: {article.author}</p> */}
-      <p className="article-comments">
-       <img className="comments-icon" src="../../../commentsicon.png" alt="icon representing comments" /> {article.comment_count}
-      </p>
-      <p className="article-votes">
-       <img className="votes-icon" src="../../../votesicon.png" alt="icon representing votes" /> {article.votes}
-      </p>
+      <div className="icon-wrapper">
+       <p className="article-comments">
+        <img className="comments-icon" src="../../../commentsicon.png" alt="icon representing comments" /> {article.comment_count}
+       </p>
+       <p className="article-votes">
+        <img className="votes-icon" src="../../../votesicon.png" alt="icon representing votes" /> {article.votes}
+       </p>
+      </div>
       <p className="article-date">
        Date: {article.created_at.slice(8, 10)}
        {article.created_at.slice(4, 8)}

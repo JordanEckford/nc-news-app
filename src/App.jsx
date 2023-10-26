@@ -12,7 +12,6 @@ function App() {
  return (
   <>
    <Header />
-   <p>TODO: username info</p>
    <NavBar />
    <Routes>
     <Route path="/" element={<Home />} />

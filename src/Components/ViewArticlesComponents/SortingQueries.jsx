@@ -37,48 +37,57 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
    <form onSubmit={handleSubmit}>
     <h4 className="filters-header">Filters:</h4>
     <div className="query-options">
-     <label htmlFor="sortByTopic">Topic: </label>
-     <select
-      onChange={(e) => {
-       setUserTopic(e.target.value);
-      }}
-      name=""
-      id="sortByTopic"
-     >
-      <option>all</option>
-      {topics.map((topic) => {
-       return <option key={topic.slug}>{topic.slug}</option>;
-      })}
-     </select>
-     <label htmlFor="sortByProperty">Sort By: </label>
-     <select
-      onChange={(e) => {
-       setUserSortBy(e.target.value);
-      }}
-      name=""
-      id="sortByProperty"
-     >
-      <option value="date">date</option>
-      <option value="comments">comments</option>
-      <option value="votes">votes</option>
-     </select>
-     <label htmlFor="order">Order: </label>
-     <select
-      onChange={(e) => {
-       setUserOrder(e.target.value);
-      }}
-      name=""
-      id="order"
-     >
-      <option value="desc">desc</option>
-      <option value="asc">asc</option>
-     </select>
+     <div className="topic-container">
+      <label htmlFor="sortByTopic">Topic: </label>
+      <select
+       onChange={(e) => {
+        setUserTopic(e.target.value);
+       }}
+       name=""
+       id="sortByTopic"
+      >
+       <option>all</option>
+       {topics.map((topic) => {
+        return <option key={topic.slug}>{topic.slug}</option>;
+       })}
+      </select>
+     </div>
+     <div className="sortby-container">
+      <label htmlFor="sortByProperty">Sort By: </label>
+      <select
+       onChange={(e) => {
+        setUserSortBy(e.target.value);
+       }}
+       name=""
+       id="sortByProperty"
+      >
+       <option value="date">date</option>
+       <option value="comments">comments</option>
+       <option value="votes">votes</option>
+      </select>
+     </div>
+     <div className="order-container">
+      <label htmlFor="order">Order: </label>
+      <select
+       onChange={(e) => {
+        setUserOrder(e.target.value);
+       }}
+       name=""
+       id="order"
+      >
+       <option value="desc">desc</option>
+       <option value="asc">asc</option>
+      </select>
+     </div>
+     <div className="advanced-container">
+      <input id="advanced-options" type="checkbox" onClick={toggleAdvancedSearch} />
+      <label htmlFor="advanced-options">Advanced</label>
+     </div>
     </div>
+    {advancedSearch ? <AdvancedSearch /> : <></>}
     <button className="query-submit" type="submit">
      Search
     </button>
-    <button onClick={toggleAdvancedSearch}>Advanced Search Options (functionality TODO)</button>
-    {advancedSearch ? <AdvancedSearch /> : <></>}
    </form>
   </>
  );
