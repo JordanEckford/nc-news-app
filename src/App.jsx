@@ -7,6 +7,7 @@ import { ViewArticles } from "./Components/ViewArticles";
 import { PostArticle } from "./Components/ViewArticlesComponents/PostArticle";
 import { Account } from "./Components/Account";
 import { SingleArticle } from "./Components/ViewArticlesComponents/SingleArticle";
+import { ErrorBadPath } from "./Components/ReusableComponents/ErrorBadPath";
 
 function App() {
  return (
@@ -20,8 +21,8 @@ function App() {
     <Route path="/articles" element={<ViewArticles />} />
     <Route path="/postarticle" element={<PostArticle />} />
     <Route path="/account" element={<Account />} />
+    <Route path="/*" element={<ErrorBadPath />} />
    </Routes>
-   <p>Content</p>
   </>
  );
 }
