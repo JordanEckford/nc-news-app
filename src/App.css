@@ -45,10 +45,6 @@ h1 {
  margin: 0 auto 0 auto;
 }
 
-/* .order-container {
- margin-top: 10px;
-} */
-
 #sortByProperty,
 #sortByTopic,
 #order {
@@ -229,7 +225,31 @@ select {
 .comment-delete-button {
  margin-left: 10px;
 }
-
+/* Errors */
 .error-msg {
  color: red;
+}
+.error-404-img {
+ width: 100%;
+ max-width: 700px;
+ margin: 10px auto;
+ border: black solid 1px;
+ border-radius: 5%;
+ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+  rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.error-404-link {
+ display: block;
+}
+.error-500-img {
+ width: 100%;
+ max-width: 700px;
+ margin: 10px auto;
+ border: black solid 1px;
+ border-radius: 5%;
+ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+  rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.error-500-link {
+ display: block;
 }
