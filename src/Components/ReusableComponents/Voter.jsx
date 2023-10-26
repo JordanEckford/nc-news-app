@@ -48,7 +48,7 @@ export const Voter = ({ type, votes, article_id, comment_id }) => {
 
  return (
   <>
-   <div>Votes: {userVotes + votes}</div>
+   <div className="vote-tag">Votes: {userVotes + votes}</div>
    <button
     disabled={userVotes === 1}
     onClick={() => {

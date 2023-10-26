@@ -39,11 +39,8 @@ export const getTopics = () => {
  });
 };
 
-export const getArticlesByQuery = (topic, sort_by = "created_at", order = "desc") => {
- let query = "https://nc-news-nvy4.onrender.com/api/articles?";
- if (topic !== "all") {
-  query += `topic=${topic}&sort_by=${sort_by}&order=${order}`;
- } else query += `sort_by=${sort_by}&order=${order}`;
+export const getArticlesByQuery = (params) => {
+ let query = `https://nc-news-nvy4.onrender.com/api/articles?${params}`;
  return axios.get(query).then((response) => {
   return response.data.articles;
  });

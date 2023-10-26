@@ -34,6 +34,7 @@ export const Login = () => {
    {username === null ? <h2>Hello!</h2> : <h2>Hello, {username}</h2>}
    {loggedIn && logoutConfirm === false ? (
     <button
+     className="logout-button"
      onClick={() => {
       setLogoutConfirm(true);
      }}
@@ -44,14 +45,18 @@ export const Login = () => {
     <> </>
    )}
    {loggedIn && logoutConfirm ? (
-    <button
-     onClick={() => {
-      setLoggedIn(false);
-      setUsername(null);
-     }}
-    >
-     Confirm Logout
-    </button>
+    <>
+     <p className="error-msg">Are you sure?</p>
+     <button
+      className="confirm-logout-button"
+      onClick={() => {
+       setLoggedIn(false);
+       setUsername(null);
+      }}
+     >
+      Confirm Logout
+     </button>
+    </>
    ) : (
     <></>
    )}

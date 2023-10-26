@@ -5,21 +5,18 @@ import { useContext } from "react";
 export const NavBar = () => {
  const { username } = useContext(UsernameContext);
  return (
-  <nav>
-   <Link to="/">
-    <a> Home </a>
+  <nav className="main-navbar">
+   <Link className="navbar-link" to="/home">
+    Home
    </Link>
-   |
-   <Link to="/articles">
-    <a> View Articles </a>
+   <Link className="navbar-link" to="/articles">
+    View Articles
    </Link>
-   |{" "}
-   <Link to="/postarticle">
-    <a> Post Article </a>
-   </Link>{" "}
-   |
-   <Link to="account">
-    <a> {username === null ? "User Profile" : `${username}'s Profile`}</a>{" "}
+   <Link className="navbar-link" to="/postarticle">
+    Post Article
+   </Link>
+   <Link className="navbar-link" to="account">
+    {username === null ? "User Profile" : `${username}'s Profile`}
    </Link>
   </nav>
  );

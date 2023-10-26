@@ -5,9 +5,6 @@ import { AdvancedSearch } from "./AdvancedSearch";
 
 export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
  const [topics, setTopics] = useState([]);
- const [userTopic, setUserTopic] = useState("all");
- const [userSortBy, setUserSortBy] = useState("date");
- const [userOrder, setUserOrder] = useState("desc");
  const [advancedSearch, setAdvancedSearch] = useState(false);
  const [userArticlesPerPage, setUserArticlesPerPage] = useState(10);
  const [userPageNumber, setUserPageNumber] = useState(1);
@@ -22,26 +19,16 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
   advancedSearch ? setAdvancedSearch(false) : setAdvancedSearch(true);
  }
 
- function handleSubmit(event) {
-  event.preventDefault();
-  let sort_by = userSortBy;
-  if (userSortBy === "date") sort_by = "created_at";
-  if (userSortBy === "comments") sort_by = "comment_count";
-  setTopic(userTopic);
-  setSortBy(sort_by);
-  setOrder(userOrder);
- }
-
  return (
   <>
-   <form onSubmit={handleSubmit}>
+   <form>
     <h4 className="filters-header">Filters:</h4>
     <div className="query-options">
      <div className="topic-container">
       <label htmlFor="sortByTopic">Topic: </label>
       <select
        onChange={(e) => {
-        setUserTopic(e.target.value);
+        setTopic(e.target.value);
        }}
        name=""
        id="sortByTopic"
@@ -56,13 +43,17 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
       <label htmlFor="sortByProperty">Sort By: </label>
       <select
        onChange={(e) => {
-        setUserSortBy(e.target.value);
+        setSortBy(e.target.value);
        }}
        name=""
        id="sortByProperty"
       >
-       <option value="date">date</option>
-       <option value="comments">comments</option>
+       <option label="date" value="created_at">
+        date
+       </option>
+       <option label="comments" value="comment_count">
+        comments
+       </option>
        <option value="votes">votes</option>
       </select>
      </div>
@@ -70,7 +61,7 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
       <label htmlFor="order">Order: </label>
       <select
        onChange={(e) => {
-        setUserOrder(e.target.value);
+        setOrder(e.target.value);
        }}
        name=""
        id="order"
@@ -85,9 +76,6 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
      </div>
     </div>
     {advancedSearch ? <AdvancedSearch /> : <></>}
-    <button className="query-submit" type="submit">
-     Search
-    </button>
    </form>
   </>
  );

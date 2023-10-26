@@ -49,7 +49,9 @@ export const PostComment = ({ article_id }) => {
     />
    </label>
    {isError ? <p className="error-msg">Sorry, something went wrong. Please try again...</p> : <></>}
-   <button type="submit">Submit</button>
+   <button className="comment-submit" type="submit">
+    Submit
+   </button>
   </form>
  );
 };
