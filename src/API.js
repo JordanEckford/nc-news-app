@@ -60,3 +60,9 @@ export const updateCommentVote = (votes, comment_id) => {
   return response;
  });
 };
+
+export const getUsersByID = (username) => {
+ return axios.get(`https://nc-news-nvy4.onrender.com/api/users/${username}`).then((response) => {
+  return response;
+ });
+};

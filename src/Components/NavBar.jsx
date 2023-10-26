@@ -6,8 +6,21 @@ export const NavBar = () => {
  const { username } = useContext(UsernameContext);
  return (
   <nav>
-   <Link to="/"> Home </Link> | <Link to="/articles"> View Articles </Link> | <Link to="/postarticle"> Post Article</Link> |
-   <Link to="account"> {username === null ? "User Profile" : `${username}'s Profile`} </Link>
+   <Link to="/">
+    <a> Home </a>
+   </Link>
+   |
+   <Link to="/articles">
+    <a> View Articles </a>
+   </Link>
+   |{" "}
+   <Link to="/postarticle">
+    <a> Post Article </a>
+   </Link>{" "}
+   |
+   <Link to="account">
+    <a> {username === null ? "User Profile" : `${username}'s Profile`}</a>{" "}
+   </Link>
   </nav>
  );
 };

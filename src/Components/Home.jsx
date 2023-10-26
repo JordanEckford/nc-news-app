@@ -1,3 +1,11 @@
+import { HotArticle } from "./HomeComponents/HotArticle";
+import { WelcomeCard } from "./HomeComponents/WelcomeCard";
+
 export const Home = () => {
- return <p>Home Element</p>;
+ return (
+  <>
+   <WelcomeCard />
+   <HotArticle />
+  </>
+ );
 };

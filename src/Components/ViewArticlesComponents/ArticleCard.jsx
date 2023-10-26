@@ -12,14 +12,12 @@ export const ArticleCard = ({ articles }) => {
        <h3 className="article-title">{article.title}</h3>
       </Link>
       <h4 className="article-topic">Topic: {article.topic}</h4>
-      {/* <p className="article-id">ID: #{article.article_id}</p>
-      <p className="article-author">Author: {article.author}</p> */}
       <div className="icon-wrapper">
        <p className="article-comments">
-        <img className="comments-icon" src="../../../commentsicon.png" alt="icon representing comments" /> {article.comment_count}
+        <img className="comments-icon" src="/commentsicon.png" alt="icon representing comments" /> {article.comment_count}
        </p>
        <p className="article-votes">
-        <img className="votes-icon" src="../../../votesicon.png" alt="icon representing votes" /> {article.votes}
+        <img className="votes-icon" src="/votesicon.png" alt="icon representing votes" /> {article.votes}
        </p>
       </div>
       <p className="article-date">
@@ -27,7 +25,6 @@ export const ArticleCard = ({ articles }) => {
        {article.created_at.slice(4, 8)}
        {article.created_at.slice(0, 4)}, Time: {article.created_at.slice(11, 16)}
       </p>
-      <nav className="article-link"></nav>
      </li>
     );
    })}

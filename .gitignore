@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 endpoints.json
 bin
+# Local Netlify folder
+.netlify

@@ -29,6 +29,8 @@ export const PostComment = ({ article_id }) => {
    });
  }, [commentToPost]);
 
+ if (username === null) return <p className="error-msg">Login to comment!</p>;
+
  if (opRendComment !== null) return <p>Comment added: {opRendComment}</p>;
 
  return (

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { updateArticleVotes, updateCommentVote } from "../../API";
+import { UsernameContext } from "../../Contexts/UsernameContext";
 
 export const Voter = ({ type, votes, article_id, comment_id }) => {
+ const { username } = useContext(UsernameContext);
  const [userVotes, setUserVotes] = useState(0);
  const [isError, setIsError] = useState(false);
 
@@ -34,6 +36,15 @@ export const Voter = ({ type, votes, article_id, comment_id }) => {
   });
   voteUpdater(value, article_id);
  };
+
+ if (username === null) {
+  return (
+   <>
+    <div>Votes: {userVotes + votes}</div>
+    <p className="error-msg">Login to vote!</p>
+   </>
+  );
+ }
 
  return (
   <>

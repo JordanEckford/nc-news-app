@@ -1,3 +1,9 @@
+import { Login } from "./AccountComponents/Login";
+
 export const Account = () => {
- return <p>Account Element</p>;
+ return (
+  <>
+   <Login />
+  </>
+ );
 };
