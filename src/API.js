@@ -63,3 +63,9 @@ export const getUsersByID = (username) => {
   return response;
  });
 };
+
+export const postUser = (userObj) => {
+ return axios.post("https://nc-news-nvy4.onrender.com/api/users", userObj).then((response) => {
+  return response.data.user;
+ });
+};

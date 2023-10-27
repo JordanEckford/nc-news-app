@@ -1,6 +1,6 @@
 export const UsernameInput = ({ updateUsername, inputName, setInputName }) => {
  return (
-  <>
+  <div className="enter-username-container">
    Enter your username below to login:
    <form onSubmit={updateUsername}>
     <label htmlFor="username">Username: </label>
@@ -17,6 +17,6 @@ export const UsernameInput = ({ updateUsername, inputName, setInputName }) => {
      Submit
     </button>
    </form>
-  </>
+  </div>
  );
 };

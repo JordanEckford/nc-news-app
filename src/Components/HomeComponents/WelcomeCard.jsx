@@ -4,7 +4,8 @@ export const WelcomeCard = () => {
  const { username } = useContext(UsernameContext);
  return (
   <>
-   <h2>Hello, {username}</h2>
+   <h2>Hello, Welcome to NC News {username}</h2>
+   <p className="home-text">This is a mock news site. Feel free to browse, post, comment or like articles</p>
   </>
  );
 };

@@ -20,6 +20,7 @@ export const ArticleCard = ({ articles }) => {
         <img className="votes-icon" src="/votesicon.png" alt="icon representing votes" /> {article.votes}
        </p>
       </div>
+      <div className="article-author">Author: {article.author}</div>
       <p className="article-date">
        Date: {article.created_at.slice(8, 10)}
        {article.created_at.slice(4, 8)}

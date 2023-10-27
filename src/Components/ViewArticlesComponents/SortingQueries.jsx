@@ -55,6 +55,8 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
         comments
        </option>
        <option value="votes">votes</option>
+       <option value="title">title</option>
+       <option value="author">author</option>
       </select>
      </div>
      <div className="order-container">
