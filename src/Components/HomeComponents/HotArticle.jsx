@@ -24,8 +24,8 @@ export const HotArticle = () => {
 
  if (isLoading) return <p>Loading...</p>;
  return (
-  <>
-   <h3 className="random-article-header">Hot right now:</h3>
+  <div className="random-article-tile">
+   <h3 className="random-article-header">Check out what's hot right now:</h3>
    <li key={randomArticle.article_id} className="random-article-card">
     <img className="random-article-img" src={randomArticle.article_img_url} alt={`A stock image relating to ${randomArticle.title}`} />
     <Link to={`/articles/${randomArticle.article_id}`}>
@@ -46,6 +46,6 @@ export const HotArticle = () => {
      {randomArticle.created_at.slice(0, 4)}, Time: {randomArticle.created_at.slice(11, 16)}
     </p>
    </li>
-  </>
+  </div>
  );
 };

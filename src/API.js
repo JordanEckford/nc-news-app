@@ -69,3 +69,15 @@ export const postUser = (userObj) => {
   return response.data.user;
  });
 };
+
+export const postNewArticle = (articleObj) => {
+ return axios.post("https://nc-news-nvy4.onrender.com/api/articles", articleObj).then((response) => {
+  return response;
+ });
+};
+
+export const postNewTopic = (topicObj) => {
+ return axios.post("https://nc-news-nvy4.onrender.com/api/topics", topicObj).then((response) => {
+  return response.data.topic;
+ });
+};

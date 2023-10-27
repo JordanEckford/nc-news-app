@@ -4,7 +4,7 @@ import { Header } from "./Components/Header";
 import { NavBar } from "./Components/NavBar";
 import { Home } from "./Components/Home";
 import { ViewArticles } from "./Components/ViewArticles";
-import { PostArticle } from "./Components/ViewArticlesComponents/PostArticle";
+import { PostArticle } from "./Components/PostArticle";
 import { Account } from "./Components/Account";
 import { SingleArticle } from "./Components/ViewArticlesComponents/SingleArticle";
 import { ErrorBadPath } from "./Components/ReusableComponents/ErrorBadPath";

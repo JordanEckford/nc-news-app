@@ -16,6 +16,7 @@ export const Login = () => {
  const [isLoading, setIsLoading] = useState(true);
 
  useEffect(() => {
+  if (username === null) return;
   setIsLoading(true);
   getUsersByID(username).then((response) => {
    setUserProfile(response.data.user);

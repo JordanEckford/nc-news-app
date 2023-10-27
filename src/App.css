@@ -75,6 +75,9 @@ h1 {
  padding: 1%;
  font-size: 4em;
 }
+.welcome-header {
+ text-decoration: underline;
+}
 
 .header-icon {
  height: 0.7em;
@@ -83,25 +86,44 @@ h1 {
  margin-right: 10px;
 }
 
-/* Filters and queries */
+/* Filters and queries ********************************************************/
 .filters-header {
  margin-bottom: 0.5%;
+ margin: 0;
+}
+
+.filter-container {
+ background-color: #7082a075;
+ width: 60%;
+ margin: 20px auto;
+ border: 2px solid black;
+ border-radius: 12px;
+ padding-bottom: 10px;
 }
 
 .query-options {
  display: flex;
- flex-direction: row;
- justify-content: center;
- flex-wrap: wrap;
- align-items: stretch;
+ flex-direction: column;
+ justify-content: space-between;
  margin: 0 auto 0 auto;
+}
+.topic-container,
+.sortby-container,
+.order-container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ width: 80%;
+ max-width: 400px;
+ margin: 5px auto;
 }
 
 #sortByProperty,
 #sortByTopic,
 #order {
- margin-right: 10px;
+ width: 50%;
  font-size: 0.8em;
+ padding: 3px;
 }
 select {
  height: 80%;
@@ -113,10 +135,6 @@ select {
  background-color: rgb(0, 5, 73);
 }
 
-.query-submit {
- display: block;
- margin: 0.5% auto 0.5% auto;
-}
 /* Article List ************************************************************************** */
 .article-list {
  width: 90%;
@@ -127,6 +145,9 @@ select {
  flex-direction: row;
  flex-wrap: wrap;
  justify-content: center;
+ background-color: #7082a075;
+ border: solid 2px black;
+ border-radius: 12px;
 }
 
 .article-card {
@@ -286,6 +307,14 @@ select {
  margin-top: 10px;
  padding: 0;
 }
+.comments-list-empty {
+ border-top: 1px solid black;
+ list-style-type: none;
+ width: 100%;
+ margin: 0;
+ margin-top: 10px;
+ padding: 20px 0 100px 0;
+}
 
 .comment-body {
  width: 100%;
@@ -351,8 +380,17 @@ select {
 }
 
 /* Hot Article CSS **************************************************************************/
+.random-article-tile {
+ background-color: #7082a075;
+ width: 80%;
+ margin: 50px auto;
+ border: 2px solid black;
+ border-radius: 12px;
+ padding-bottom: 20px;
+}
+
 .random-article-list {
- width: 90%;
+ width: 80%;
  margin: 0 auto;
  padding: 0;
  list-style: none;
@@ -371,9 +409,9 @@ select {
  border-radius: 3%;
  margin: 0 auto;
  padding: 0;
- width: 90%;
+ width: 80%;
  min-width: 280px;
- max-width: 700px;
+ max-width: 500px;
  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
   rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
@@ -453,6 +491,14 @@ a:hover {
 
 /* User Profile ************************************************************* */
 
+.profile-card {
+ background-color: #7082a075;
+ width: 80%;
+ margin: 50px auto;
+ border: 2px solid black;
+ border-radius: 12px;
+}
+
 .logout-button {
  background-color: rgb(0, 5, 73);
  border-width: 0;
@@ -493,12 +539,16 @@ a:hover {
  margin: 20px auto;
  border-radius: 12px;
  padding: 20px 0;
+ background-color: #7082a075;
+ width: 80%;
 }
 .create-user-container {
  border: 1px solid black;
  margin: 20px auto;
  border-radius: 12px;
  padding: 20px 0;
+ background-color: #7082a075;
+ width: 80%;
 }
 
 .username-container,
@@ -530,16 +580,124 @@ a:hover {
  height: 2em;
  width: 10em;
 }
-.user-profile-img {
+.user-profile-img-container {
  display: block;
  margin: 20px auto;
- width: 70vw;
+ height: 30vh;
  max-width: 500px;
+ max-height: 500px;
  min-width: 200px;
- border-radius: 50%;
- border: black solid 2px;
+ min-height: 10px;
+}
+.user-profile-img-container img {
+ object-fit: contain;
+ width: auto;
+ height: 100%;
+}
+.user-profile-img {
+ border: 1px solid black;
+ border-radius: 10%;
  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
   rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.post-article-form {
+ border: 1px solid black;
+ width: 80%;
+ margin: 0 auto;
+ border-radius: 12px;
+ background-color: #7082a075;
+}
+
+.create-title-container,
+.create-topic-container,
+.create-body-container,
+.create-url-container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ width: 80%;
+ max-width: 400px;
+ margin: 10px auto;
+}
+
+#create-article-title,
+#create-article-body,
+#create-article-topic,
+#create-article-url {
+ padding: 0;
+ text-align: center;
+ border-radius: 6px;
+ border: 1px solid black;
+ width: 50%;
+}
+#create-article-topic {
+ height: 2.5em;
+ font-size: 0.55em;
+ margin: 0;
+ padding: 5px;
+ border-width: 0;
+ border-radius: 6%;
+ color: white;
+ background-color: rgb(0, 5, 73);
+}
+
+.create-user-submit {
+ background-color: rgb(0, 5, 73);
+ border-width: 0;
+ border-radius: 10px;
+ color: rgb(255, 255, 255);
+ font-size: 1em;
+ margin: 20px auto 0 auto;
+ height: 2em;
+ width: 10em;
+}
+.create-article-submit {
+ background-color: rgb(0, 5, 73);
+ border-width: 0;
+ border-radius: 5px;
+ color: rgb(255, 255, 255);
+ font-size: 1em;
+ margin: 20px auto 20px auto;
+ height: 1.5em;
+ width: 8em;
+}
+
+/* Create Topic CSS **************************************************************************/
+.topic-form {
+ border: 1px solid black;
+ width: 80%;
+ margin: 0 auto;
+ border-radius: 12px;
+ background-color: #7082a075;
+}
+
+.topic-slug-container,
+.topic-description-container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ width: 80%;
+ max-width: 400px;
+ margin: 10px auto;
+}
+#topic-slug,
+#topic-description {
+ padding: 0;
+ text-align: center;
+ width: 50%;
+ border-radius: 6px;
+ border: 1px solid black;
+}
+.create-topic-submit {
+ background-color: rgb(0, 5, 73);
+ border-width: 0;
+ border-radius: 5px;
+ color: rgb(255, 255, 255);
+ font-size: 1em;
+ margin: 20px auto 20px auto;
+ height: 1.5em;
+ width: 8em;
 }
 
 /* PARTY MODE ***********************************************************************/
@@ -646,7 +804,17 @@ body.party-mode .article-card {
  box-shadow: blue 0px 0px 0px 2px inset, rgb(0, 0, 0) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(0, 0, 0) 20px -20px 0px -3px,
   rgb(255, 217, 19) 20px -20px, rgb(0, 0, 0) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(0, 0, 0) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
  color: rgb(3, 3, 3);
+ animation: spin 3000ms infinite linear;
 }
+@keyframes spin {
+ from {
+  transform: rotate(0deg);
+ }
+ to {
+  transform: rotate(360deg);
+ }
+}
+
 body.party-mode .article-card:hover {
  animation: bounce 1s linear infinite;
 }
@@ -700,6 +868,18 @@ body.party-mode .comments-list {
 body.party-mode .comment-card {
  border: 1px solid black;
  background-color: #7082a075;
+ box-shadow: blue 0px 0px 0px 2px inset, rgb(0, 0, 0) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(0, 0, 0) 20px -20px 0px -3px,
+  rgb(255, 217, 19) 20px -20px, rgb(0, 0, 0) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(0, 0, 0) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+ color: rgb(3, 3, 3);
+ animation: spin 3000ms infinite linear;
+}
+@keyframes spin {
+ from {
+  transform: rotate(0deg);
+ }
+ to {
+  transform: rotate(360deg);
+ }
 }
 
 /* Errors *********************************************************************************/
@@ -724,11 +904,24 @@ body.party-mode .hot-article {
 
 /* Hot Article CSS **************************************************************************/
 
+body.party-mode .random-article-tile {
+ box-shadow: blue 0px 0px 0px 2px inset, rgb(0, 0, 0) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(0, 0, 0) 20px -20px 0px -3px,
+  rgb(255, 217, 19) 20px -20px, rgb(0, 0, 0) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(0, 0, 0) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+ color: rgb(3, 3, 3);
+}
+
 body.party-mode .random-article-card {
  border: solid black 2px;
  background-color: white;
- box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-  rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+ animation: spin 3000ms infinite linear;
+}
+@keyframes spin {
+ from {
+  transform: rotate(0deg);
+ }
+ to {
+  transform: rotate(360deg);
+ }
 }
 
 body.party-mode a {

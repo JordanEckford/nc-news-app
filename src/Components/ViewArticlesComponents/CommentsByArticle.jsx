@@ -46,7 +46,7 @@ export const CommentsByArticle = ({ article_id }) => {
  }, [commentIDToDelete]);
 
  if (isLoading) return <p>Loading...</p>;
- if (noComments) return <p className="comments-list">Its empty in here... Be the first to comment!</p>;
+ if (noComments) return <p className="comments-list-empty">Its empty in here... Be the first to comment!</p>;
  return (
   <ul className="comments-list">
    <h3>Comments: </h3>

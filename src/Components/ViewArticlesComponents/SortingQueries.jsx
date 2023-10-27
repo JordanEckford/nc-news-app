@@ -20,7 +20,7 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
  }
 
  return (
-  <>
+  <div className="filter-container">
    <form>
     <h4 className="filters-header">Filters:</h4>
     <div className="query-options">
@@ -72,13 +72,13 @@ export const SortingQueries = ({ setTopic, setSortBy, setOrder }) => {
        <option value="asc">asc</option>
       </select>
      </div>
-     <div className="advanced-container">
+     {/* <div className="advanced-container">
       <input id="advanced-options" type="checkbox" onClick={toggleAdvancedSearch} />
       <label htmlFor="advanced-options">Advanced</label>
-     </div>
+     </div> */}
     </div>
-    {advancedSearch ? <AdvancedSearch /> : <></>}
+    {/* {advancedSearch ? <AdvancedSearch /> : <></>} */}
    </form>
-  </>
+  </div>
  );
 };
