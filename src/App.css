@@ -10,10 +10,17 @@ body {
  background-color: #b3cffb;
 }
 
-.navbar-link {
+.navbar-link-home,
+.navbar-link-view,
+.navbar-link-post,
+.navbar-link-account {
+ font-size: 1em;
  transition: transform 0.4s;
 }
-.navbar-link:hover {
+.navbar-link-home:hover,
+.navbar-link-view:hover,
+.navbar-link-post:hover,
+.navbar-link-account:hover {
  transform: scale(1.1);
  color: white;
 }
@@ -21,6 +28,7 @@ body {
 .main-navbar {
  display: flex;
  justify-content: space-around;
+ align-items: center;
  width: 90%;
  margin: 0 auto;
  padding: 0 0 8px 3px;
@@ -388,6 +396,9 @@ select {
  border-radius: 12px;
  padding-bottom: 20px;
 }
+.random-article-header {
+ margin: 10px 50px;
+}
 
 .random-article-list {
  width: 80%;
@@ -542,6 +553,32 @@ a:hover {
  background-color: #7082a075;
  width: 80%;
 }
+.username-input-container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ width: 80%;
+ max-width: 400px;
+ margin: 10px auto;
+}
+#username {
+ padding: 0;
+ text-align: center;
+ border-radius: 6px;
+ border: 1px solid black;
+ width: 50%;
+}
+.submit-button-username {
+ background-color: rgb(0, 5, 73);
+ border-width: 0;
+ border-radius: 5px;
+ color: rgb(255, 255, 255);
+ font-size: 1em;
+ margin: 20px auto 0 auto;
+ height: 2em;
+ width: 10em;
+}
+
 .create-user-container {
  border: 1px solid black;
  margin: 20px auto;
@@ -557,9 +594,9 @@ a:hover {
  display: flex;
  flex-direction: row;
  justify-content: space-between;
- margin: 0 auto;
  width: 80%;
  max-width: 400px;
+ margin: 10px auto;
 }
 
 .create-username-input,
@@ -569,6 +606,7 @@ a:hover {
  text-align: center;
  border-radius: 6px;
  border: 1px solid black;
+ width: 50%;
 }
 .create-user-submit {
  background-color: rgb(0, 5, 73);
@@ -645,7 +683,7 @@ a:hover {
 .create-user-submit {
  background-color: rgb(0, 5, 73);
  border-width: 0;
- border-radius: 10px;
+ border-radius: 5px;
  color: rgb(255, 255, 255);
  font-size: 1em;
  margin: 20px auto 0 auto;
