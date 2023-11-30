@@ -3,6 +3,7 @@ import { ArticleCard } from "./ViewArticlesComponents/ArticleCard";
 import { useEffect, useState } from "react";
 import { SortingQueries } from "./ViewArticlesComponents/SortingQueries";
 import { useSearchParams } from "react-router-dom";
+import LoadingIcons from "react-loading-icons";
 
 export const ViewArticles = () => {
  const [articles, setArticles] = useState([]);
@@ -37,7 +38,7 @@ export const ViewArticles = () => {
    <SortingQueries topic={topic} setTopic={setTopic} setSortBy={setSortBy} setOrder={setOrder} />
    <h2>Articles: </h2>
    {isLoading ? (
-    <p>Loading Articles...</p>
+    <LoadingIcons.BallTriangle stroke="#000549" />
    ) : (
     <ul className="article-list">
      <ArticleCard articles={articles} />

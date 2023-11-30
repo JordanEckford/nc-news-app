@@ -6,6 +6,7 @@ import { Voter } from "../ReusableComponents/Voter";
 import { PostComment } from "./PostComment";
 import { SingleArticleContent } from "./SingleArticleContent";
 import { Error404 } from "../ReusableComponents/Error404";
+import LoadingIcons from "react-loading-icons";
 
 export const SingleArticle = () => {
  const [singleArticle, setSingleArticle] = useState([]);
@@ -32,7 +33,7 @@ export const SingleArticle = () => {
    });
  }, []);
 
- if (isLoading) return <p>Loading Article...</p>;
+ if (isLoading) return <LoadingIcons.BallTriangle stroke="#000549" />;
  if (error) return <Error404 />;
  return (
   <>
