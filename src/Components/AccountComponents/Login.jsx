@@ -5,6 +5,7 @@ import { getUsersByID } from "../../API";
 import { CreateUser } from "./CreateUser";
 import { AccountCard } from "./AccountCard";
 import { LogoutButtons } from "./LogoutButtons";
+import LoadingIcons from "react-loading-icons";
 
 export const Login = () => {
  const { username, setUsername } = useContext(UsernameContext);
@@ -38,7 +39,7 @@ export const Login = () => {
     setIsError(true);
    });
  }
-
+ if (isLoading) return <LoadingIcons.BallTriangle stroke="#000549" />;
  return (
   <>
    <AccountCard isLoading={isLoading} userProfile={userProfile} username={username} />
